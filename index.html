@@ -20,6 +20,7 @@
                     <th>GPA</th>
                     <th>Academic Plan</th>
                     <th>Level</th>
+                    <th>Active</th>
                 </tr>
                 <tr ng-repeat="i in data">
                     <td>{{i.stuNum}}</td>
@@ -29,6 +30,7 @@
                     <td>{{i.gpa}}</td>
                     <td>{{i.plan}}</td>
                     <td>{{i.level}}</td>
+                    <td>{{i.active}}</td>
                 </tr>
                 <tr>
                     <td><input type="text" ng-model="stuNum"></td>
@@ -38,6 +40,7 @@
                     <td><input type="text" ng-model="gpa"></td>
                     <td><input type="text" ng-model="plan"></td>
                     <td><input type="text" ng-model="level"></td>
+                    <td><input type="checkbox" ng-model="checkboxModel"></td>
                 </tr>
             </table>
             <div id="controls">
