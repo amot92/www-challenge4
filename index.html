@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="stuApp">
+  	<head> 
+      	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 		<!-- angular cdn -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    
+    	<script src="controller.js"></script>
+    
+    	<link rel="stylesheet" href="todo.css">
+  	</head>
+  	<body>
+        <div class="container" ng-controller="StudentController">
+            <table class="table">
+                <tr>
+                    <th>Student Number</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone number</th>
+                    <th>GPA</th>
+                    <th>Academic Plan</th>
+                    <th>Level</th>
+                </tr>
+                <tr ng-repeat="i in data">
+                    <td>{{i.stuNum}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.phoNum}}</td>
+                    <td>{{i.gpa}}</td>
+                    <td>{{i.plan}}</td>
+                    <td>{{i.level}}</td>
+                </tr>
+                <tr>
+                    <td><input type="text" ng-model="stuNum"></td>
+                    <td><input type="text" ng-model="name"></td>
+                    <td><input type="text" ng-model="address"></td>
+                    <td><input type="text" ng-model="phoNum"></td>
+                    <td><input type="text" ng-model="gpa"></td>
+                    <td><input type="text" ng-model="plan"></td>
+                    <td><input type="text" ng-model="level"></td>
+                </tr>
+            </table>
+            <div id="controls">
+                <button ng-click="addStudent()" class="btn btn-primary btn-large">Add</button>
+                <button ng-click="clear()" class="btn btn-primary btn-large">clear</button>
+            </div>                       
+        </div>
+  </body>
+</html>
