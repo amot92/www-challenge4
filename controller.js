@@ -38,7 +38,6 @@ angular
                 exit;
             }
             
-            //could add dashes to regex
             var phoNum = $scope.phoNum
             if((/^[0-9]+\s?\-?\s?[0-9]*\s?\-?\s?[0-9]*$/).test(phoNum)){
                 $scope.alert = "Success";
@@ -71,6 +70,8 @@ angular
                 exit;
             }
             
+            var checkBox = $scope.checkboxModel;
+            
             //make a new student out of the input values
             var student = {
                 stuNum: stuNum,
@@ -80,6 +81,7 @@ angular
                 gpa: gpa,
                 plan: plan,
                 level: level,
+                active: checkBox,
             }
  
             //pull the list from memory into the model ($scope)
@@ -104,6 +106,7 @@ angular
             $scope.gpa = "";
             $scope.plan = "";
             $scope.level = "";
+            $scope.checkBoxModel = false;
         };
     
         $scope.clear = function() {
