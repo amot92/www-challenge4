@@ -109,6 +109,7 @@ angular
             $scope.checkBoxModel = false;
         };
     
+        //need to do something about n = 0
         $scope.activeState = function(num) {
             //pull the list from memory into the model ($scope)
             var unparsedList = localStorage.getItem("students");
@@ -118,7 +119,13 @@ angular
                 $scope.data = JSON.parse(unparsedList);
             }
             
-            $scope.alert = num;
+            //update the model
+            var n = 0;
+            $scope.data[n].active = !$scope.data[n].active 
+            $scope.alert = $scope.data[n];
+            
+            //push updated model onto memory
+            localStorage.setItem("students", JSON.stringify($scope.data));
         };
     
         $scope.clear = function() {
