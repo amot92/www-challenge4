@@ -70,7 +70,7 @@ angular
                 exit;
             }
             
-            var checkBox = $scope.checkboxModel;
+            var activeState = $scope.activeState;
             
             //make a new student out of the input values
             var student = {
@@ -81,7 +81,7 @@ angular
                 gpa: gpa,
                 plan: plan,
                 level: level,
-                active: checkBox,
+                activeState: activeState,
             }
  
             //pull the list from memory into the model ($scope)
@@ -106,11 +106,10 @@ angular
             $scope.gpa = "";
             $scope.plan = "";
             $scope.level = "";
-            $scope.checkBoxModel = false;
+            $scope.activeState = false;
         };
     
-        //need to do something about n = 0
-        $scope.activeState = function(num) {
+        $scope.switchActiveState = function(obj) {
             //pull the list from memory into the model ($scope)
             var unparsedList = localStorage.getItem("students");
             if(unparsedList == null || unparsedList == ""){
@@ -120,12 +119,15 @@ angular
             }
             
             //update the model
-            var n = 0;
-            $scope.data[n].active = !$scope.data[n].active 
-            $scope.alert = $scope.data[n];
+            for (i=0; i < $scope.data.length; i++){
+                if ($scope.data[i].stuNum == obj.stuNum){
+                    $scope.data[i].activeState = !$scope.data[i].activeState;
+                }
+            }
             
             //push updated model onto memory
             localStorage.setItem("students", JSON.stringify($scope.data));
+            
         };
     
         $scope.clear = function() {

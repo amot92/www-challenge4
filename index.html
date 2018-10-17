@@ -30,7 +30,7 @@
                     <td>{{i.gpa}}</td>
                     <td>{{i.plan}}</td>
                     <td>{{i.level}}</td>
-                    <td><input type="checkbox" ng-click="activeState(i.stuNum)">{{i.active}}</td>
+                    <td ng-click="switchActiveState(i)">{{i.activeState}}</td>
                 </tr>
                 <tr>
                     <td><input type="text" ng-model="stuNum"></td>
@@ -40,7 +40,7 @@
                     <td><input type="text" ng-model="gpa"></td>
                     <td><input type="text" ng-model="plan"></td>
                     <td><input type="text" ng-model="level"></td>
-                    <td><input type="checkbox" ng-model="checkboxModel"></td>
+                    <td><input type="checkbox" ng-model="activeState"></td>
                 </tr>
             </table>
             <div id="controls">
