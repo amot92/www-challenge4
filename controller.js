@@ -24,7 +24,7 @@ angular
             
             //something is wrong
             var name = $scope.name
-            if((/^[a-zA-Z]+$/).test(name)){
+            if((/^[a-zA-Z]+\s[a-zA-Z]+$/).test(name)){
                 $scope.alert = "Success";
             }else {
                 $scope.alert = "name has improper format";
@@ -32,7 +32,7 @@ angular
             }
             
             var address = $scope.address
-            if((/^[0-9]+\s[a-zA-A]+$/).test(address)){
+            if((/^[0-9]+\s[a-zA-Z]+\s?[a-zA-Z]*\.?$/).test(address)){
                 $scope.alert = "Success";
             }else {
                 $scope.alert = "address has improper format";
@@ -41,7 +41,7 @@ angular
             
             //could add dashes to regex
             var phoNum = $scope.phoNum
-            if((/^[0-9]+$/).test(phoNum)){
+            if((/^[0-9]+\s?\-?\s?[0-9]*\s?\-?\s?[0-9]*$/).test(phoNum)){
                 $scope.alert = "Success";
             }else {
                 $scope.alert = "Phone Number has improper format";
@@ -56,16 +56,14 @@ angular
                 exit;
             }
             
-            //somethng is wrong
             var plan = $scope.plan
-            if((/^[a-zA-Z]+$/).test(plan)){
+            if((/^[a-zA-Z]+\s?\-?\s?[a-zA-Z]*$/).test(plan)){
                 $scope.alert = "Success";
             }else {
                 $scope.alert = "plan has improper format";
                 exit;
             }
             
-            //something is wrong
             var level = $scope.level
             if((/^[a-zA-Z]+$/).test(level)){
                 $scope.alert = "Success";
