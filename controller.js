@@ -38,7 +38,6 @@ angular
                 exit;
             }
             
-            //could add dashes to regex
             var phoNum = $scope.phoNum
             if((/^[0-9]+\s?\-?\s?[0-9]*\s?\-?\s?[0-9]*$/).test(phoNum)){
                 $scope.alert = "Success";
