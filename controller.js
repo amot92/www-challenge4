@@ -22,7 +22,6 @@ angular
                 exit;
             }
             
-            //something is wrong
             var name = $scope.name
             if((/^[a-zA-Z]+\s[a-zA-Z]+$/).test(name)){
                 $scope.alert = "Success";
