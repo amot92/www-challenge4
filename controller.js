@@ -110,7 +110,8 @@ angular
         };
     
         $scope.switchActiveState = function(obj) {
-            //pull the list from memory into the model ($scope)
+            
+            //pull the list from memory into the model
             var unparsedList = localStorage.getItem("students");
             if(unparsedList == null || unparsedList == ""){
                 $scope.data = [];
@@ -118,16 +119,16 @@ angular
                 $scope.data = JSON.parse(unparsedList);
             }
             
-            //update the model
+            //find the obj in the model
             for (i=0; i < $scope.data.length; i++){
                 if ($scope.data[i].stuNum == obj.stuNum){
+                    //reverse its activeState
                     $scope.data[i].activeState = !$scope.data[i].activeState;
                 }
             }
             
             //push updated model onto memory
             localStorage.setItem("students", JSON.stringify($scope.data));
-            
         };
     
         $scope.delete = function(obj) {

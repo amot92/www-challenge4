@@ -31,7 +31,10 @@
                     <td>{{i.gpa}}</td>
                     <td>{{i.plan}}</td>
                     <td>{{i.level}}</td>
-                    <td ng-click="switchActiveState(i)">{{i.activeState}}</td>
+                    <td >
+                        <input type="checkbox" 
+                               ng-click="switchActiveState(i)" 
+                               ng-model="i.activeState"></td>
                     <td ng-click="delete(i)">X</td>
                 </tr>
                 <tr>
