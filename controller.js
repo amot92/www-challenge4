@@ -2,14 +2,29 @@ angular
     .module('stuApp', [])
 	.controller('StudentController', function($scope) {
     
-    //check if local storage is empty
-        //If not...populate the view with initial entries
+        //Initialize the model
         var unparsedList = localStorage.getItem("students")
         if(unparsedList == null || unparsedList == ""){
             $scope.data = [];
         } else {
             $scope.data = JSON.parse(unparsedList);
         }
+    
+        $scope.numActive = 0;
+        count();
+    
+        function count(){
+            var num = 0;
+            
+            $scope.data.forEach(function(obj){
+                if (obj.activeState){
+                    num += 1
+                }
+            });
+            
+            $scope.numActive = num;
+        }
+    
     
         $scope.addStudent = function() {
             
@@ -95,6 +110,8 @@ angular
             //push new entry onto model 
             $scope.data.push(student);
             
+            count();
+            
             //push updated model onto memory
             localStorage.setItem("students", JSON.stringify($scope.data));
             
@@ -126,7 +143,7 @@ angular
                     $scope.data[i].activeState = !$scope.data[i].activeState;
                 }
             }
-            
+            count();
             //push updated model onto memory
             localStorage.setItem("students", JSON.stringify($scope.data));
         };
@@ -146,7 +163,7 @@ angular
                     $scope.data.splice(i, 1);
                 }
             }
-            
+            count();
             //push updated model onto memory
             localStorage.setItem("students", JSON.stringify($scope.data));
             
