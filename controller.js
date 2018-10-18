@@ -136,10 +136,9 @@ angular
                 $scope.data = JSON.parse(unparsedList);
             }
             
-            //find the obj in the model
+            //update the model
             for (i=0; i < $scope.data.length; i++){
                 if ($scope.data[i].stuNum == obj.stuNum){
-                    //reverse its activeState
                     $scope.data[i].activeState = !$scope.data[i].activeState;
                 }
             }
