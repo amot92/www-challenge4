@@ -130,6 +130,27 @@ angular
             
         };
     
+        $scope.delete = function(obj) {
+            //pull the list from memory into the model ($scope)
+            var unparsedList = localStorage.getItem("students");
+            if(unparsedList == null || unparsedList == ""){
+                $scope.data = [];
+            } else {
+                $scope.data = JSON.parse(unparsedList);
+            }
+            
+            //update the model
+            for (i=0; i < $scope.data.length; i++){
+                if ($scope.data[i].stuNum == obj.stuNum){
+                    $scope.data.splice(i, 1);
+                }
+            }
+            
+            //push updated model onto memory
+            localStorage.setItem("students", JSON.stringify($scope.data));
+            
+        };
+    
         $scope.clear = function() {
             localStorage.setItem("students", "");
             $scope.data = [];

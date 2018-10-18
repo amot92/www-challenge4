@@ -21,6 +21,7 @@
                     <th>Academic Plan</th>
                     <th>Level</th>
                     <th>Active</th>
+                    <th>Delete</th>
                 </tr>
                 <tr ng-repeat="i in data">
                     <td>{{i.stuNum}}</td>
@@ -31,6 +32,7 @@
                     <td>{{i.plan}}</td>
                     <td>{{i.level}}</td>
                     <td ng-click="switchActiveState(i)">{{i.activeState}}</td>
+                    <td ng-click="delete(i)">X</td>
                 </tr>
                 <tr>
                     <td><input type="text" ng-model="stuNum"></td>
